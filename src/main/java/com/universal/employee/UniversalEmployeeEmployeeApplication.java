@@ -18,14 +18,4 @@ public class UniversalEmployeeEmployeeApplication {
 
         SpringApplication.run(UniversalEmployeeEmployeeApplication.class, args);
     }
-    
-    
-    @Bean
-    public Docket api() {                
-        return new Docket(DocumentationType.SWAGGER_2)          
-          .select()                                       
-          .apis(RequestHandlerSelectors.basePackage("com.universal.employee.controller"))
-          .paths(PathSelectors.any())                     
-          .build();
-    }
 }

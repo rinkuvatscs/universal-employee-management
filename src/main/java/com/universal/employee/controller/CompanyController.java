@@ -11,7 +11,7 @@ import com.universal.employee.model.Company;
 import com.universal.employee.service.CompanyService;
 
 @RestController
-@RequestMapping("/company")
+@RequestMapping("/universal/company")
 public class CompanyController {
 
     @Autowired

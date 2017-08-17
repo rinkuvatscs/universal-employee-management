@@ -1,8 +1,7 @@
 package com.universal.employee.controller;
 
-import javax.websocket.server.PathParam;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,38 +13,42 @@ import com.universal.employee.request.EmployeeRequest;
 import com.universal.employee.service.EmployeeService;
 
 @RestController
-@RequestMapping("/employee")
+@RequestMapping("/universal/employee")
 public class EmployeeController {
 
-    @Autowired
-    private EmployeeService employeeServiceImpl;
+	@Autowired
+	private EmployeeService employeeServiceImpl;
 
-    @RequestMapping(value = "/{companyId}"  ,  method = RequestMethod.POST )
-    @ResponseBody
-    public Employee createEmployee(@PathParam("companyId") Integer companyId,  @RequestBody EmployeeRequest employeeRequest) {
+	@RequestMapping(value = "/{companyId}", method = RequestMethod.POST)
+	@ResponseBody
+	public Employee createEmployee(@PathVariable Integer companyId,
+			@RequestBody EmployeeRequest employeeRequest) {
 
-        return employeeServiceImpl.createEmployee(companyId, employeeRequest);
-    }
+		return employeeServiceImpl.createEmployee(companyId, employeeRequest);
+	}
 
-    @RequestMapping(value = "/{companyId}/{employeeId}"  ,    method = RequestMethod.GET)
-    @ResponseBody
-    public Employee deleteEmployee(@PathParam("companyId") Integer companyId, @PathParam("employeeId") Integer employeeId) {
+	@RequestMapping(value = "/{companyId}/{employeeId}", method = RequestMethod.DELETE)
+	@ResponseBody
+	public Employee deleteEmployee(@PathVariable Integer companyId,
+			@PathVariable Integer employeeId) {
 
-        return employeeServiceImpl.deleteEmployee(companyId, employeeId);
-    }
+		return employeeServiceImpl.deleteEmployee(companyId, employeeId);
+	}
 
-    @RequestMapping(value = "/{companyId}"   ,  method = RequestMethod.PUT)
-    @ResponseBody
-    public Employee updateEmployee(@PathParam("companyId") Integer companyId, @RequestBody EmployeeRequest employeeRequest) {
+	@RequestMapping(value = "/{companyId}", method = RequestMethod.PUT)
+	@ResponseBody
+	public Employee updateEmployee(@PathVariable Integer companyId,
+			@RequestBody EmployeeRequest employeeRequest) {
 
-        return employeeServiceImpl.updateEmployee(companyId, employeeRequest);
-    }
+		return employeeServiceImpl.updateEmployee(companyId, employeeRequest);
+	}
 
-    @RequestMapping(value = "/{companyId}/{employeeId}"  ,      method = RequestMethod.DELETE)
-    @ResponseBody
-    public Employee findEmployee(@PathParam("companyId") Integer companyId, Integer employeeId) {
+	@RequestMapping(value = "/{companyId}/{employeeId}", method = RequestMethod.GET)
+	@ResponseBody
+	public Employee findEmployee(@PathVariable Integer companyId,
+			@PathVariable Integer employeeId) {
 
-        return employeeServiceImpl.findEmployee(companyId, employeeId);
-    }
+		return employeeServiceImpl.findEmployee(companyId, employeeId);
+	}
 
 }

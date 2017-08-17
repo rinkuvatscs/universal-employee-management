@@ -1,8 +1,8 @@
 package com.universal.employee.dao.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
 import org.apache.commons.beanutils.BeanUtils;
 import org.slf4j.Logger;
@@ -24,7 +24,7 @@ public class EmployeeCacheDaoImpl implements EmployeeDao {
 
     static final Logger LOGGER = LoggerFactory.getLogger(EmployeeCacheDaoImpl.class);
 
-    private static final Map<Integer, Employee> employeeData = new ConcurrentHashMap<>();
+    private static final Map<Integer, Employee> employeeData = new HashMap<>();
 
     @Autowired
     private CompanyCacheDaoImpl companyCacheDaoImpl;
