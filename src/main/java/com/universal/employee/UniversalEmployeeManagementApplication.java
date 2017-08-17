@@ -10,12 +10,12 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
 @SpringBootApplication
-public class UniversalEmployeeEmployeeApplication {
+public class UniversalEmployeeManagementApplication {
 
   
 
     public static void main(String[] args) {
 
-        SpringApplication.run(UniversalEmployeeEmployeeApplication.class, args);
+        SpringApplication.run(UniversalEmployeeManagementApplication.class, args);
     }
 }
